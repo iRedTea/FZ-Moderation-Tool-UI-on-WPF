@@ -5,6 +5,22 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Force_Zone___Moderation_Tool_UI_on_WPF</RootNamespace>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources/logo.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\background.png" />
+    <None Remove="Resources\logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\logo.ico">
+      <CustomToolNamespace></CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
 
 </Project>
