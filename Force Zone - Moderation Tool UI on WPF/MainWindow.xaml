@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Force_Zone___Moderation_Tool_UI_on_WPF"
         mc:Ignorable="d"
-        Title="Авторизация" Height="450" Width="300" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow">
+        Title="Авторизация" Height="400" Width="300" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow">
     <Window.Resources>
         <ResourceDictionary Source="/Themes/Light.xaml"/>
     </Window.Resources>
@@ -23,31 +23,30 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel>
-            <TextBlock Text="ForceZone" FontSize="40" HorizontalAlignment="Center" Height="48"/>
-            <Image Source="/Resources/logo.ico" Width="40" Height="40" Margin="0,20,0,0"/>
+            <Image Source="/Resources/fz_logo.png" Width="213" Height="108"/>
         </StackPanel>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="0,0,0,80" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel>
-                <TextBlock FontSize="14" TextAlignment="Center"><Run/><LineBreak/><Run Text="Введите логин"/></TextBlock>
-                <TextBox x:Name="login" Margin="31,2,31,21" Grid.Row="1" Width="169" />
+                <TextBlock FontSize="14" TextAlignment="Center"><Run/><LineBreak/><Run Text="Введите логин" FontWeight="Bold"/></TextBlock>
+                <TextBox x:Name="login" Margin="31,2,31,21" Grid.Row="1" Width="168" Height="18"/>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <TextBlock FontSize="14" TextAlignment="Center"><Run/><LineBreak/><Run Text="Введите пароль"/></TextBlock>
-                <PasswordBox x:Name="password" Margin="31,2,31,21" Grid.Row="1" Width="172"/>
+                <TextBlock FontSize="14" TextAlignment="Center"><Run/><LineBreak/><Run Text="Введите пароль" FontWeight="Bold"/></TextBlock>
+                <PasswordBox x:Name="password" Margin="31,2,31,21" Grid.Row="1" Width="168" Height="18"/>
             </StackPanel>
             <TextBlock x:Name="rez" HorizontalAlignment="Center" Grid.Row="2" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Margin="0,36,0,0"/>
 
         </Grid>
         <Button Content="Войти" IsDefault="True" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="116" Click="Button_Click" Margin="92,0,92,0"/>
-        <Button Click="SiteRedirect_Click" Content="Сайт" TextBlock.FontStretch="Medium" HorizontalAlignment="Center" Margin="0,87,0,0" Grid.Row="2" VerticalAlignment="Top" Width="116" Height="37" Background="#FF1CA24D" BorderBrush="#FF25951A">
+        <Button Click="SiteRedirect_Click" Content=" Сайт" TextBlock.FontStretch="Medium" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Top" Width="116" Height="37" Background="#FF1CA24D" BorderBrush="#FF25951A" Margin="0,75,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Label Content="{TemplateBinding Content}" Foreground="Green" TextBlock.TextAlignment="Center" Margin="32,0,0,0"/>
+                    <Label Content="{TemplateBinding Content}" Foreground="Green" TextBlock.FontSize="13" TextBlock.TextAlignment="Center" Margin="32,0,0,0"/>
                 </ControlTemplate>
             </Button.Template>
         </Button>

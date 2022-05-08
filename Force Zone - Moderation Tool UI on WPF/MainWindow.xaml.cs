@@ -33,13 +33,33 @@ namespace Force_Zone___Moderation_Tool_UI_on_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            #region
             if (failed > 3)
             {
                 if(!timeOut)
                 {
-                    rez.Text = "Вы совершили слишком много безуспешных\n попыток входа!\n Подождите перед следующей\n попыткой!";
+                    rez.Text = "Попробуйте войти позже!";
                     return;
                 } else SetTimer();
+            }
+            if (login.Text == String.Empty)
+            {
+                rez.Text = "Введите логин!";
+                return;
+            }
+            if (password.Password == String.Empty)
+            {
+                rez.Text = "Введите пароль!";
+                return;
+            }
+            if (login.Text.Length < 3)
+            {
+                rez.Text = "Логин меньше 3 букв!";
+                return;
+            }
+            {
+                rez.Text = "Введите логин!";
+                return;
             }
             if (!Login(login.Text, password.Password))
             {
@@ -47,6 +67,8 @@ namespace Force_Zone___Moderation_Tool_UI_on_WPF
                 rez.Text = "Неверный пароль!";
                 return;
             }
+            #endregion
+
             else rez.Text = "Успешный вход!";
         }
 

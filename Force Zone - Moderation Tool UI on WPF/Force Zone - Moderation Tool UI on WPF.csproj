@@ -10,11 +10,15 @@
 
   <ItemGroup>
     <None Remove="Resources\background.png" />
+    <None Remove="Resources\fz_logo.png" />
     <None Remove="Resources\logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\fz_logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\logo.ico">
