@@ -33,7 +33,15 @@
             </Grid.RowDefinitions>
             <StackPanel>
                 <TextBlock FontSize="14" TextAlignment="Center"><Run/><LineBreak/><Run Text="Введите логин" FontWeight="Bold"/></TextBlock>
-                <TextBox x:Name="login" Margin="31,2,31,21" Grid.Row="1" Width="168" Height="18"/>
+                <TextBox x:Name="login" Margin="31,2,31,21" Grid.Row="1" Width="168" Height="18">
+                    <TextBox.Text>
+                        <Binding Path="Login">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="1">
                 <TextBlock FontSize="14" TextAlignment="Center"><Run/><LineBreak/><Run Text="Введите пароль" FontWeight="Bold"/></TextBlock>

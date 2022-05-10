@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
@@ -21,13 +23,39 @@ namespace Force_Zone___Moderation_Tool_UI_on_WPF
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+    public class Dat : IDataErrorInfo
+    {
+        public string Login { get; set; }
+        public string Error { get => throw new NotImplementedException(); }
+        public string this[string name]
+        {
+            get
+            {
+                switch (name)
+                {
+                    case "Login":
+
+                        if (Login != null && Regex.IsMatch(Login, "[а-яА-ЯеЁ]")) return "Логин должен быть написан\n на английском языке!";
+                        if (Login != null && Login.Length < 3) return "Логин меньше 3 букв!";
+                        return String.Empty;
+                    default:
+                        return String.Empty;
+                }
+            }
+        }
+    }
+
     public partial class MainWindow : Window
     {
         private int failed = 0;
         private static bool timeOut;
 
+        public Dat dat;
         public MainWindow()
         {
+            dat = new Dat();
+            this.DataContext = dat;
             InitializeComponent();
         }
 
@@ -57,11 +85,12 @@ namespace Force_Zone___Moderation_Tool_UI_on_WPF
                 rez.Text = "Логин меньше 3 букв!";
                 return;
             }
+            if (Regex.IsMatch(login.Text, "[а-яА-ЯеЁ]"))
             {
-                rez.Text = "Введите логин!";
+                rez.Text = "Логин должен быть на английском!";
                 return;
             }
-            if (!Login(login.Text, password.Password))
+                if (!Login(login.Text, password.Password))
             {
                 failed++;
                 rez.Text = "Неверный пароль!";
